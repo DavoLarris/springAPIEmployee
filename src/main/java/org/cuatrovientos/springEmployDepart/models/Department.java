@@ -8,6 +8,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -69,6 +71,7 @@ public class Department {
 		this.description = description;
 	}
 
+	@JsonManagedReference
 	public List<Employee> getEmployees() {
 		return employees;
 	}

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.cuatrovientos.springEmployDepart.dao.EmployeeDAO;
-import org.cuatrovientos.springEmployDepart.dao.GenericDAO;
 import org.cuatrovientos.springEmployDepart.models.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,7 +54,7 @@ public class EmployeeAPIController {
 	 * @return true if it is created successfully
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public void insert(@RequestBody @Valid Employee series) {
+	public void insert(@RequestBody Employee series) {
 		employeeDAO.insert(series);
 	}
 

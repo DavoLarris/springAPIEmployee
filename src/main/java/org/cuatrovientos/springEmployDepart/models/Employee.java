@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Employee {
 	@Id
@@ -71,6 +73,7 @@ public class Employee {
 		this.telephone = telephone;
 	}
 	
+	@JsonBackReference
 	public Department getDepartment() {
 		return department;
 	}
