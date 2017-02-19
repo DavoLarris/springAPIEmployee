@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/employees/api")
+@RequestMapping("/api")
 public class EmployeeAPIController {
 
 	@Autowired
@@ -28,7 +28,7 @@ public class EmployeeAPIController {
 
 
 	/**
-	 * Returns the list of employees. handles /employees/api
+	 * Returns the list of employees. handles /api
 	 * 
 	 * @return the list of all series
 	 */
@@ -38,7 +38,7 @@ public class EmployeeAPIController {
 	}
 
 	/**
-	 * Returns a TV show by its ID. handles /employees/api/id
+	 * Returns a TV show by its ID. handles /api/id
 	 * 
 	 * @param id
 	 * @return the employee by ID
@@ -49,23 +49,23 @@ public class EmployeeAPIController {
 	}
 
 	/**
-	 * Creates a new employee. handles /employees/api by POST
+	 * Creates a new employee. handles /api by POST
 	 * 
 	 * @return true if it is created successfully
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, value= { "/new" })
 	public void insert(@RequestBody Employee series) {
 		employeeDAO.insert(series);
 	}
 
 	/**
-	 * Updates a employee by its ID. handles /employees/api/{id} by PUT
+	 * Updates a employee by its ID. handles /api/{id} by PUT
 	 * 
 	 * @param id
 	 * @param series
 	 * @return true if it is updated successfully
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable Integer id,
 			@RequestBody @Valid Employee series) {
 		series.setId(id);
@@ -73,11 +73,11 @@ public class EmployeeAPIController {
 	}
 
 	/**
-	 * Deletes a employee by its ID. handles /employees/api/{id} by DELETE
+	 * Deletes a employee by its ID. handles /api/{id} by DELETE
 	 * 
 	 * @param id
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable Integer id) {
 		employeeDAO.delete(employeeDAO.selectById(id, Employee.class));
 	}
