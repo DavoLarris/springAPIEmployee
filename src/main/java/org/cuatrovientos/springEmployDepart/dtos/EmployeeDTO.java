@@ -1,6 +1,6 @@
 package org.cuatrovientos.springEmployDepart.dtos;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

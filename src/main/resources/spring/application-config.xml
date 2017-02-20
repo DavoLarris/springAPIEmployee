@@ -43,18 +43,17 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-
-	<bean id="departmentDAO" class="org.cuatrovientos.springEmployDepart.dao.DepartmentDAO">
+	<bean id="employeeDAO" class="org.cuatrovientos.springEmployDepart.dao.EmployeeDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="employeeDAO" class="org.cuatrovientos.springEmployDepart.dao.EmployeeDAO">
+	<bean id="departmentDAO" class="org.cuatrovientos.springEmployDepart.dao.DepartmentDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
