@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/employees/api")
 public class EmployeeAPIController {
-
 	@Autowired
 	private EmployeeDAO employeeDAO;
 
@@ -66,10 +65,9 @@ public class EmployeeAPIController {
 	 * @return true if it is updated successfully
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable Integer id,
-			@RequestBody @Valid Employee series) {
-		series.setId(id);
-		employeeDAO.update(series);
+	public void update(@RequestBody @Valid Employee employee, @PathVariable Integer id) {
+		employee.setId(id);
+		employeeDAO.update(employee);
 	}
 
 	/**
