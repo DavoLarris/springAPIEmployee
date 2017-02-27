@@ -88,7 +88,7 @@
 				<label for="birthDate" class="control-label col-sm-1"><s:message
 								code="table.date"></s:message></label>
 				<div class="col-sm-11">
-					<sf:input path="birthDate" class="form-control" type="text"
+					<sf:input path="birthDate" class="form-control" type="date"
 						placeholder="00-00-0000" />
 					<sf:errors path="birthDate" cssClass="error" />
 				</div>

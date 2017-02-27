@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
+//import org.springframework.format.annotation.DateTimeFormat;
 
 
 public class EmployeeDTO {
@@ -23,7 +23,7 @@ public class EmployeeDTO {
 	private String name;
 	
 	@NotNull(message = "Please enter your birth date")
-	@DateTimeFormat(pattern="dd-mm-yyyy")
+	//@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Past (message="Only the past is valid")
 	private Date birthDate;
 	

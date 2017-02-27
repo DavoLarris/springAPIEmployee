@@ -35,7 +35,11 @@ public class EmployeeAPIController {
 	public List<Employee> getAll() {
 		return employeeDAO.selectAll(Employee.class);
 	}
-
+	
+	@RequestMapping(method = RequestMethod.GET, value = { "/last/{id}" })
+	public List<Employee> getFromLast(@PathVariable(value = "id") Integer id) {
+		return employeeDAO.selectLast(id);
+	}
 	/**
 	 * Returns a TV show by its ID. handles /api/id
 	 * 

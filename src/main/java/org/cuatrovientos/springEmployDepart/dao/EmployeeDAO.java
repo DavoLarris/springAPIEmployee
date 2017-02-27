@@ -66,4 +66,17 @@ public class EmployeeDAO extends GenericDAO<Employee> {
 		Query query = getSession().createQuery(stringQuery);
 		query.executeUpdate();
 	}
+
+	@Transactional
+	public List<Employee> selectLast(Integer id) {
+		List<Employee> employees = null;
+
+		Query query = getSession().createQuery("FROM Employee WHERE id > :id ORDER BY id");
+		query.setParameter("id", id);
+		
+		// We get a generic object list
+		employees = query.list();
+
+		return employees;
+	}
 }
