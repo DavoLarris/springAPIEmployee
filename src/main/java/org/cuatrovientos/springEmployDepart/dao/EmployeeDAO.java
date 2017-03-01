@@ -1,13 +1,10 @@
 package org.cuatrovientos.springEmployDepart.dao;
 
 import java.util.List;
-import java.util.Random;
 
 import org.cuatrovientos.springEmployDepart.models.Department;
 import org.cuatrovientos.springEmployDepart.models.Employee;
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -79,4 +76,6 @@ public class EmployeeDAO extends GenericDAO<Employee> {
 
 		return employees;
 	}
+	
+	
 }

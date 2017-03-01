@@ -1,5 +1,6 @@
 package org.cuatrovientos.springEmployDepart.controllers;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -91,9 +92,10 @@ public class EmployeeController {
 	 * handles /employees/new by POST
 	 * 
 	 * @return the name of the view to show RequestMapping({"/employees/new"})
+	 * @throws ParseException 
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = { "/employees/new" })
-	public ModelAndView createEmployee(@ModelAttribute("employee") @Valid EmployeeDTO employeeDTO, BindingResult bindingResult) {
+	public ModelAndView createEmployee(@ModelAttribute("employee") @Valid EmployeeDTO employeeDTO, BindingResult bindingResult) throws ParseException {
 		logger.info("Saveview POST " + employeeDTO.getId());
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -172,9 +174,10 @@ public class EmployeeController {
 	
 	/**
 	 * Handles the POST from the Custom.jsp page to update the employee.
+	 * @throws ParseException 
 	 */
 	@RequestMapping(value = "/employees/saveUpdated", method = RequestMethod.POST)
-	public ModelAndView saveUpdate(EmployeeDTO employeeDTO) {
+	public ModelAndView saveUpdate(EmployeeDTO employeeDTO) throws ParseException {
 		logger.info("Save employee " + employeeDTO.getId());
 		Employee employee = EmployeeMapper.toEmployee(employeeDTO, employeeDAO.getDepartment(employeeDTO.getIdDepartment()));
 		

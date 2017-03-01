@@ -2,6 +2,8 @@ package org.cuatrovientos.springEmployDepart.dtos;
 
 import java.sql.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -9,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 //import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -22,10 +25,10 @@ public class EmployeeDTO {
 	@NotEmpty(message = "Field should not be empty.")
 	private String name;
 	
-	@NotNull(message = "Please enter your birth date")
-	//@DateTimeFormat(pattern="dd/MM/yyyy")
-	@Past (message="Only the past is valid")
-	private Date birthDate;
+	//@NotNull(message = "Please enter your birth date")
+	//@DateTimeFormat(pattern="dd-MM-yyyy")
+	//@Past(message="Only the past is valid")
+	private String birthDate;
 	
 	@NotNull(message = "Please enter your phone number")
 	@Pattern(regexp = "[0-9]+", message = "Must only contain numbers")
@@ -42,7 +45,7 @@ public class EmployeeDTO {
 		
 	}
 	
-	public EmployeeDTO(Integer id, String name, Date birthDate, String telephone, int idDepartment) {
+	public EmployeeDTO(Integer id, String name, String birthDate, String telephone, int idDepartment) {
 		this.id = id;
 		this.name = name;
 		this.birthDate = birthDate;
@@ -66,11 +69,11 @@ public class EmployeeDTO {
 		this.name = name;
 	}
 
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
