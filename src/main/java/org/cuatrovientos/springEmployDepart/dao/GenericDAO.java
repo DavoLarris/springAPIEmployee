@@ -39,17 +39,16 @@ public class GenericDAO<T> {
 	 * @throws HibernateException
 	 */
 	@Transactional
-	public boolean insert(T entity) {
-		Serializable id = null;
+	public Integer insert(T entity) {
 		getSession().persist(entity);
 		getSession().flush();
 		
-		id = getSession().getIdentifier(entity);
+		Integer id = (Integer) getSession().getIdentifier(entity);
 		
 		if (id != null){
-			return true;
+			return  id.intValue();
 		}
-		return false;
+		return null;
 	}
 
 	/**

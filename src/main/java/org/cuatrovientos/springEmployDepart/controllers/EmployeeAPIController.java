@@ -52,13 +52,13 @@ public class EmployeeAPIController {
 	}
 
 	/**
-	 * Creates a new employee. handles /api by POST
+	 * Creates a new employee. handles /api/new by POST
 	 * 
 	 * @return true if it is created successfully
 	 */
 	@RequestMapping(method = RequestMethod.POST, value= { "/new" })
-	public void insert(@RequestBody Employee series) {
-		employeeDAO.insert(series);
+	public Integer insert(@RequestBody Employee series) {
+		 return employeeDAO.insert(series);
 	}
 
 	/**
