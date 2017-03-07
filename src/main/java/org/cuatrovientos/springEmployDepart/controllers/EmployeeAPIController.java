@@ -57,7 +57,7 @@ public class EmployeeAPIController {
 	 * @return true if it is created successfully
 	 */
 	@RequestMapping(method = RequestMethod.POST, value= { "/new" })
-	public Integer insert(@RequestBody Employee series) {
+	public boolean insert(@RequestBody Employee series) {
 		 return employeeDAO.insert(series);
 	}
 

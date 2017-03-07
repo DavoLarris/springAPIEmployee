@@ -28,7 +28,7 @@ public class EmployeeDAO extends GenericDAO<Employee> {
 		List<Employee> employees = null;
 
 		Query query = getSession().createQuery("from Employee e where e.name LIKE :nam");
-		query.setParameter("nam", "%" + name + "%");
+		query.setParameter("nam", name + "%");
 
 		// We get a generic object list
 		employees = query.list();
