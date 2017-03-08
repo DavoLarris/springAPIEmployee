@@ -59,7 +59,7 @@ public class GenericDAO<T> {
 	 */
 	@Transactional
 	public void update(T entity) throws HibernateException {
-		getSession().merge(entity);
+		getSession().update(entity);
 		getSession().flush();
 	}
 
