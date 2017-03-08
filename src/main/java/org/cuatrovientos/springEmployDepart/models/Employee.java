@@ -1,6 +1,7 @@
 package org.cuatrovientos.springEmployDepart.models;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -61,8 +62,16 @@ public class Employee {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date date) {
-		this.birthDate = date;
+	public void setBirthDate(String date) {
+		java.text.SimpleDateFormat sdf = 
+		     new java.text.SimpleDateFormat("yyyy-MM-dd");
+ 
+		try {
+			this.birthDate = sdf.parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getTelephone() {

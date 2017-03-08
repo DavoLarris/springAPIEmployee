@@ -7,7 +7,7 @@ import org.cuatrovientos.springEmployDepart.models.Department;
 import org.cuatrovientos.springEmployDepart.models.Employee;
 
 public class EmployeeMapper {
-
+	private static java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 	public static Employee toEmployee(EmployeeDTO employeeDTO, Department department) throws ParseException {
 		Employee employee = new Employee();
 		employee.setId(employeeDTO.getId());
@@ -21,9 +21,9 @@ public class EmployeeMapper {
 	public static EmployeeDTO toDTO(Employee employee) {
 		EmployeeDTO employeeDTO;
 		if (employee.getDepartment() == null) {
-			employeeDTO = new EmployeeDTO(employee.getId(), employee.getName(), employee.getBirthDate(), employee.getTelephone(), 0);
+			employeeDTO = new EmployeeDTO(employee.getId(), employee.getName(), sdf.format(employee.getBirthDate()), employee.getTelephone(), 0);
 		} else {
-			employeeDTO = new EmployeeDTO(employee.getId(), employee.getName(), employee.getBirthDate(), employee.getTelephone(), employee.getDepartment().getId());
+			employeeDTO = new EmployeeDTO(employee.getId(), employee.getName(), sdf.format(employee.getBirthDate()), employee.getTelephone(), employee.getDepartment().getId());
 		}
 		return employeeDTO;
 	}

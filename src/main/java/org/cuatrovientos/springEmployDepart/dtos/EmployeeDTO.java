@@ -1,6 +1,6 @@
 package org.cuatrovientos.springEmployDepart.dtos;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -23,9 +23,9 @@ public class EmployeeDTO {
 	private String name;
 	
 	//@NotNull(message = "Please enter your birth date")
-	//@DateTimeFormat(pattern="dd-MM-yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	//@Past(message="Only the past is valid")
-	private Date birthDate;
+	private String birthDate;
 	
 	@NotNull(message = "Please enter your phone number")
 	@Pattern(regexp = "[0-9]+", message = "Must only contain numbers")
@@ -42,7 +42,7 @@ public class EmployeeDTO {
 		
 	}
 	
-	public EmployeeDTO(Integer id, String name, Date date, String telephone, int idDepartment) {
+	public EmployeeDTO(Integer id, String name, String date, String telephone, int idDepartment) {
 		this.id = id;
 		this.name = name;
 		this.birthDate = date;
@@ -66,11 +66,11 @@ public class EmployeeDTO {
 		this.name = name;
 	}
 
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
