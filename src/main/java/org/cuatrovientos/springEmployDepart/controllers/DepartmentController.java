@@ -77,7 +77,7 @@ public class DepartmentController {
 			return modelAndView;
 		}
 		
-		if (departmentDAO.insert(department)) {
+		if (departmentDAO.insert(department) != 0) {
 			// We return view name
 			modelAndView.setViewName("department/created");
 			modelAndView.addObject("department", department);

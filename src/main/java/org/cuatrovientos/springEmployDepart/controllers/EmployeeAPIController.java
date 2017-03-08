@@ -57,8 +57,9 @@ public class EmployeeAPIController {
 	 * @return true if it is created successfully
 	 */
 	@RequestMapping(method = RequestMethod.POST, value= { "/new" })
-	public boolean insert(@RequestBody Employee series) {
+	public int insert(@RequestBody Employee series) {
 		 return employeeDAO.insert(series);
+		 
 	}
 
 	/**
@@ -71,7 +72,6 @@ public class EmployeeAPIController {
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable Integer id,
 			@RequestBody @Valid Employee employee) {
-		employee.setId(id);
 		employeeDAO.update(employee);
 	}
 

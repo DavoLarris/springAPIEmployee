@@ -19,7 +19,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;	
-	private Date birthDate;
+	private String birthDate;
 	private String telephone;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -35,7 +35,7 @@ public class Employee {
 	 * @param birthDate
 	 * @param telephone
 	 */
-	public Employee(String name, Date birthDate, String telephone, Department depart) {
+	public Employee(String name, String birthDate, String telephone, Department depart) {
 		this.name = name;
 		this.birthDate = birthDate;
 		this.telephone = telephone;
@@ -58,20 +58,12 @@ public class Employee {
 		this.name = name;
 	}
 
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
 	public void setBirthDate(String date) {
-		java.text.SimpleDateFormat sdf = 
-		     new java.text.SimpleDateFormat("yyyy-MM-dd");
- 
-		try {
-			this.birthDate = sdf.parse(date);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.birthDate = date;
 	}
 
 	public String getTelephone() {

@@ -111,7 +111,7 @@ public class EmployeeController {
 		Employee employee = EmployeeMapper.toEmployee(employeeDTO, employeeDAO.getDepartment(employeeDTO.getIdDepartment()));
 
 
-		if (employeeDAO.insert(employee)) {
+		if (employeeDAO.insert(employee) != 0) {
 			// We return view name
 			modelAndView.setViewName("employee/created");
 			modelAndView.addObject("employee", employee);
